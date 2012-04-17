@@ -6,8 +6,6 @@ file.close
 
 tables = doc.search("//table[@class='wikitable sortable']")
 
-      #t.string  :shade
-
 hash = {}
 tables.search("//tr").each_with_index do |tr, i|
   ths = tr.search("//th")
@@ -37,4 +35,16 @@ tables.search("//tr").each_with_index do |tr, i|
   hash[color.name] = color
 end
 
-pp hash
+doc.search("//table[@class='navbox']").each do |table|
+  trs = table.search("//tr")
+  shade = trs[0].search("//span").search("//a").search("//span").inner_html.strip[10..-1]
+  tds = table.search("//td[@width='5%']")
+  next if shade.blank?
+  pp shade
+  tds.each do |td|
+    name = td.search("//a").inner_html
+    lookup = hash[name]
+    pp name if not lookup
+  end
+end
+
