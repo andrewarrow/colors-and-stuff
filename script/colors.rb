@@ -40,7 +40,7 @@ doc.search("//table[@class='navbox']").each do |table|
   shade = trs[0].search("//span").search("//a").search("//span").inner_html.strip[10..-1]
   tds = table.search("//td")
   next if shade.blank?
-  pp "SHADE: #{shade}"
+  #pp "SHADE: #{shade}"
   tds.each do |td|
     style = td.attributes['style']
     next if style.blank?
@@ -51,4 +51,9 @@ doc.search("//table[@class='navbox']").each do |table|
   end
 end
 
-pp hash
+hash["#FF9966"].name = 'Pink-orange'
+hash["#738678"].name = 'Xanadu'
+
+hash.each do |k, v|
+  pp [v.name, v.hex]
+end
