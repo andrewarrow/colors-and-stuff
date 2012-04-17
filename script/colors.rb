@@ -56,4 +56,5 @@ hash["#738678"].name = 'Xanadu'
 
 hash.each do |k, v|
   pp [v.name, v.hex]
+  v.save
 end
