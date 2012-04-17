@@ -13,6 +13,7 @@ class NavbarController < ApplicationController
     open('../bootstrap/less/variables.less', "w") do |f|
       f << buffer.join
     end
+    system('lessc ../bootstrap/less/bootstrap.less > app/assets/stylesheets/bootstrap.css')
     redirect_to root_url
   end
 
