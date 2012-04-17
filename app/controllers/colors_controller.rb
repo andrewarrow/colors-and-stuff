@@ -1,11 +1,11 @@
-class NavbarController < ApplicationController
+class ColorsController < ApplicationController
 
   def change
     buffer = []
     open('../bootstrap/less/variables.less').each do |line|
       tokens = line.split(':')
       if tokens.first == '@navbarBackground'
-        buffer << "#{tokens.first}:     #ca0088;\n"
+        buffer << "#{tokens.first}:     #9990af;\n"
       else
         buffer << line
       end
