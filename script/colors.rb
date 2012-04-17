@@ -1,6 +1,6 @@
 require 'hpricot'
 
-file = File.open('script/colors.html', 'r')
+file = File.open('script/html_colors.html', 'r')
 doc = Hpricot(file.read)
 file.close
 
