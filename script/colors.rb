@@ -32,19 +32,23 @@ tables.search("//tr").each_with_index do |tr, i|
   color.w3c = tds[10].inner_html.strip
   color.w3c = nil if color.w3c == '&#160;'
 
-  hash[color.name] = color
+  hash[color.hex] = color
 end
 
 doc.search("//table[@class='navbox']").each do |table|
   trs = table.search("//tr")
   shade = trs[0].search("//span").search("//a").search("//span").inner_html.strip[10..-1]
-  tds = table.search("//td[@width='5%']")
+  tds = table.search("//td")
   next if shade.blank?
-  pp shade
+  pp "SHADE: #{shade}"
   tds.each do |td|
-    name = td.search("//a").inner_html
-    lookup = hash[name]
-    pp name if not lookup
+    style = td.attributes['style']
+    next if style.blank?
+    hex = style.split(':').last
+    #name = td.search("//a").inner_html
+    lookup = hash[hex]
+    lookup.shade = shade if lookup
   end
 end
 
+pp hash
