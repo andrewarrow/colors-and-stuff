@@ -10,7 +10,10 @@ class NavbarController < ApplicationController
         buffer << line
       end
     end
-    puts buffer.join
+    open('../bootstrap/less/variables.less', "w") do |f|
+      f << buffer.join
+    end
+    redirect_to root_url
   end
 
 end
