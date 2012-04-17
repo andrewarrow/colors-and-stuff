@@ -9,7 +9,6 @@ class CreateColors < ActiveRecord::Migration
 
     create_table :colors do |t|
       t.string  :name
-      t.string  :w3c
       t.string  :hex
 
       t.integer :red
@@ -24,6 +23,7 @@ class CreateColors < ActiveRecord::Migration
       t.integer :hsv_satur
       t.integer :hsv_value
 
+      t.string  :w3c
       t.string  :shade
     end
 
