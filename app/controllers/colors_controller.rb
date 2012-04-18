@@ -11,18 +11,53 @@ class ColorsController < ApplicationController
     # @navbarLinkColor:                 @grayLight;
     # @navbarLinkColorHover:            @white;
 
+=begin
+
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+=end
+
     color = Color.random
+    infoColor = Color.random
+    successColor = Color.random
+    warningColor = Color.random
+    dangerColor = Color.random
+
     buffer = []
     open('../bootstrap/less/variables.less').each do |line|
       tokens = line.split(':')
       if tokens.first == '@navbarBackground'
-        buffer << "#{tokens.first}:     darken(#{color}, 20%);\n"
+        buffer << "#{tokens.first}:     darken(#{color}, 15%);\n"
       elsif tokens.first == '@navbarBackgroundHighlight'
         buffer << "#{tokens.first}:     #{color};\n"
       elsif tokens.first == '@navbarText'
-        buffer << "#{tokens.first}:     lighten(#{color}, 20%);\n"
+        buffer << "#{tokens.first}:     lighten(#{color}, 30%);\n"
       elsif tokens.first == '@navbarLinkColor'
-        buffer << "#{tokens.first}:     lighten(#{color}, 20%);\n"
+        buffer << "#{tokens.first}:     lighten(#{color}, 30%);\n"
+      elsif tokens.first == '@linkColor'
+        buffer << "#{tokens.first}:     #{color};\n"
+
+      elsif tokens.first == '@btnInfoBackground'
+        buffer << "#{tokens.first}:     lighten(#{infoColor}, 15%);\n"
+      elsif tokens.first == '@btnInfoBackgroundHighlight'
+        buffer << "#{tokens.first}:     #{infoColor};\n"
+
+      elsif tokens.first == '@btnSuccessBackground'
+        buffer << "#{tokens.first}:     lighten(#{successColor}, 15%);\n"
+      elsif tokens.first == '@btnSuccessBackgroundHighlight'
+        buffer << "#{tokens.first}:     #{successColor};\n"
+
+      elsif tokens.first == '@btnWarningBackground'
+        buffer << "#{tokens.first}:     lighten(#{warningColor}, 15%);\n"
+      elsif tokens.first == '@btnWarningBackgroundHighlight'
+        buffer << "#{tokens.first}:     #{warningColor};\n"
+
+      elsif tokens.first == '@btnDangerBackground'
+        buffer << "#{tokens.first}:     lighten(#{dangerColor}, 15%);\n"
+      elsif tokens.first == '@btnDangerBackgroundHighlight'
+        buffer << "#{tokens.first}:     #{dangerColor};\n"
+
       else
         buffer << line
       end
