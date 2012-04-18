@@ -4,19 +4,6 @@ class ColorsController < ApplicationController
     # @grayDarker:            #222;  13, 13, 13
     # @grayDark:              #333;  20, 20, 20
     # @grayLight:             #999;  60, 60, 60
-    #
-    # @navbarBackground:     @grayDarker;
-    # @navbarBackgroundHighlight:       @grayDark;
-    # @navbarText:                      @grayLight;
-    # @navbarLinkColor:                 @grayLight;
-    # @navbarLinkColorHover:            @white;
-
-=begin
-
-@btnDangerBackground:               #ee5f5b;
-@btnDangerBackgroundHighlight:      #bd362f;
-
-=end
 
     color = Color.random
     infoColor = Color.random
@@ -37,6 +24,21 @@ class ColorsController < ApplicationController
         buffer << "#{tokens.first}:     lighten(#{color}, 30%);\n"
       elsif tokens.first == '@linkColor'
         buffer << "#{tokens.first}:     #{color};\n"
+
+      elsif tokens.first == '@infoText'
+        buffer << "#{tokens.first}:     darken(#{infoColor}, 15%);\n"
+      elsif tokens.first == '@infoBackground'
+        buffer << "#{tokens.first}:     lighten(#{infoColor}, 30%);\n"
+
+      elsif tokens.first == '@errorText'
+        buffer << "#{tokens.first}:     darken(#{dangerColor}, 15%);\n"
+      elsif tokens.first == '@errorBackground'
+        buffer << "#{tokens.first}:     lighten(#{dangerColor}, 30%);\n"
+
+      elsif tokens.first == '@successText'
+        buffer << "#{tokens.first}:     darken(#{successColor}, 15%);\n"
+      elsif tokens.first == '@successBackground'
+        buffer << "#{tokens.first}:     lighten(#{successColor}, 30%);\n"
 
       elsif tokens.first == '@btnInfoBackground'
         buffer << "#{tokens.first}:     lighten(#{infoColor}, 15%);\n"
