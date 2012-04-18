@@ -39,3 +39,12 @@ http://farm6.staticflickr.com/5344/7089077211_d675b9a50b_b.jpg
 The logic is very simple right now.  The plan is to change the logic 
 to use fields like hsl_satur and hue to make better choices.  Feedback 
 appreciated, thanks. 
+
+TO RUN:
+
+1. curl http://en.wikipedia.org/wiki/List_of_colors > script/html_colors.html
+2. bundle install
+3. rake db:migrate
+4. rails r script/colors.rb
+5. rails s
+6. open http://localhost:3000
