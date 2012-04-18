@@ -1,0 +1,41 @@
+Started working on a color picker for bootstrap: 
+
+It's a simple rails app with a database of about 800 colors with this 
+as the color table schema: 
+
+  create_table "colors", :force => true do |t| 
+    t.string  "name" 
+    t.string  "w3c" 
+    t.string  "hex" 
+    t.integer "red" 
+    t.integer "green" 
+    t.integer "blue" 
+    t.integer "hue" 
+    t.integer "hsl_satur" 
+    t.integer "hsl_light" 
+    t.integer "hsv_satur" 
+    t.integer "hsv_value" 
+    t.string  "shade" 
+  end 
+
+The idea is not to have pre-defined palettes that an artist must pick 
+and get stale.  i.e. popular palettes are used over and over and don't 
+look original after awhile. But rather, let some programming logic 
+pick colors and let a human click a button and review the picks over 
+and over until they find a set that's awesome.  Here's 10 screen shots 
+of different picks: 
+
+http://farm8.staticflickr.com/7211/6943006634_e399c41cf4_b.jpg 
+http://farm8.staticflickr.com/7244/7089077497_e1f54fde62_b.jpg 
+http://farm8.staticflickr.com/7266/6943006550_60cc381be4_b.jpg 
+http://farm8.staticflickr.com/7199/7089077429_0d586e5da7_b.jpg 
+http://farm6.staticflickr.com/5198/6943006496_cf0eb1ff3f_b.jpg 
+http://farm6.staticflickr.com/5275/6943006466_e4bd74846c_b.jpg 
+http://farm6.staticflickr.com/5112/7089077317_2b549aa349_b.jpg 
+http://farm6.staticflickr.com/5346/7089077291_72e5b68765_b.jpg 
+http://farm8.staticflickr.com/7180/7089077243_c355e4e925_b.jpg 
+http://farm6.staticflickr.com/5344/7089077211_d675b9a50b_b.jpg 
+
+The logic is very simple right now.  The plan is to change the logic 
+to use fields like hsl_satur and hue to make better choices.  Feedback 
+appreciated, thanks. 
