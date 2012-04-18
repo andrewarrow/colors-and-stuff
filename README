@@ -48,3 +48,6 @@ TO RUN:
 4. rails r script/colors.rb
 5. rails s
 6. open http://localhost:3000
+7. make sure bootstrap checkout is in ../bootstrap
+8. make sure lessc is in path
+9. press change colors button
